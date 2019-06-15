@@ -1,4 +1,12 @@
 {
+    "name": "serverless-plugin-typetalk",
+    "version": "0.0.1",
+    "description": "Serverless Plugin Typetalk",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:is2ei/serverless-plugin-typetalk.git"
+    },
     "scripts": {
         "test": "jest"
     },
