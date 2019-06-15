@@ -1,9 +1,13 @@
 'use strict';
 
-class ServerlessPlugin {
+class TypetalkServerlessPlugin {
   constructor(serverless, options) {
     this.serverless = serverless;
     this.options = options;
+
+    if (!this.serverless.custom.typetalk) {
+      throw new Error('ServerlessTypetalkPlugin requires options');
+    }
 
     this.hooks = {
       'before:deploy:resources': this.beforeDeployResources.bind(this),
@@ -22,7 +26,8 @@ class ServerlessPlugin {
 
   remove() {
     this.serverless.cli.log('[Serverless Typetalk Plugin Test] remove()');
+    console.log('[Serverless Typetalk Plugin Test] remove()');
   }
 }
 
-module.exports = ServerlessPlugin;
+module.exports = TypetalkServerlessPlugin;
