@@ -13,6 +13,9 @@ class ServerlessPlugin {
 
   beforeDeployResources() {
     this.serverless.cli.log('[Serverless Typetalk Plugin Test] beforeDeployResources()');
+  }
+
+  beforeDeployFunctions() {
     this.serverless.cli.log('[Serverless Typetalk Plugin Test] beforeDeployFunctions()');
   }
 }
