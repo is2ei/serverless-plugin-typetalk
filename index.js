@@ -5,7 +5,7 @@ class TypetalkServerlessPlugin {
     this.serverless = serverless;
     this.options = options;
 
-    if (!this.serverless.custom.typetalk) {
+    if (!this.serverless.custom || this.serverless.custom.typetalk) {
       throw new Error('ServerlessTypetalkPlugin requires options');
     }
 
