@@ -7,11 +7,13 @@ class ServerlessPlugin {
 
     this.hooks = {
       'before:deploy:resources': this.beforeDeployResources.bind(this),
+      'before:deploy:functions': this.beforeDeployFunctions.bind(this),
     };
   }
 
   beforeDeployResources() {
     this.serverless.cli.log('[Serverless Typetalk Plugin Test] beforeDeployResources()');
+    this.serverless.cli.log('[Serverless Typetalk Plugin Test] beforeDeployFunctions()');
   }
 }
 
