@@ -50,7 +50,7 @@ class TypetalkServerlessPlugin {
   }
 
   deployDeploy() {
-    const message = ':confetti_ball: Deployed \`${this.serverless.service.name}\`...'
+    const message = `:confetti_ball: Deployed \`${this.serverless.service.name}\`...`
     const id = this.serverless.service.custom.typetalk.topicId
     return this.typetalk.postMessage({message}, {id})
       .then(() => this.serverless.cli.log('Typetalk notification has been sent.'))
@@ -59,7 +59,7 @@ class TypetalkServerlessPlugin {
   }
 
   remove() {
-    const message = ':bomb: Removed Serverless service and all resources'
+    const message = `:bomb: Removed \`${this.serverless.service.name}\``
     const id = this.serverless.service.custom.typetalk.topicId
     return this.typetalk.postMessage({message}, {id})
       .then(() => this.serverless.cli.log('Typetalk notification has been sent.'))
