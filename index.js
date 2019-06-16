@@ -54,6 +54,7 @@ class TypetalkServerlessPlugin {
     console.log('[Serverless Typetalk Plugin Test] remove()');
     const message = ':bomb: Removed Serverless service and all resources'
     const id = this.serverless.service.custom.typetalk.topicId
+    console.log(this.typetalk);
     this.typetalk.postMessage({message}, {id})
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
