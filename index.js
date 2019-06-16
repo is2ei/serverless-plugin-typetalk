@@ -35,10 +35,19 @@ class TypetalkServerlessPlugin {
     });
 
     this.hooks = {
+      'before:deploy:deploy': this.beforeDeployDeploy.bind(this),
       'before:deploy:resources': this.beforeDeployResources.bind(this),
       'before:deploy:functions': this.beforeDeployFunctions.bind(this),
       'remove:remove': this.remove.bind(this),
     };
+  }
+
+  beforeDeployDeploy() {
+    const message = ':airplane_departure: Start deploying a Serverless service...'
+    const id = this.serverless.service.custom.typetalk.topicId
+    return this.typetalk.postMessage({message}, {id})
+      .then(() => this.serverless.cli.log('Typetalk notification has been sent.'))
+      .catch((err) => this.serverless.cli.log(`Typetalk notification failed. error: ${JSON.stringify(err)}`));
   }
 
   beforeDeployResources() {
@@ -50,15 +59,11 @@ class TypetalkServerlessPlugin {
   }
 
   remove() {
-    this.serverless.cli.log('[Serverless Typetalk Plugin Test] remove()');
-    console.log('[Serverless Typetalk Plugin Test] remove()');
     const message = ':bomb: Removed Serverless service and all resources'
     const id = this.serverless.service.custom.typetalk.topicId
-    console.log(this.typetalk);
-    this.typetalk.postMessage({message}, {id})
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    console.log("TEST");
+    return this.typetalk.postMessage({message}, {id})
+      .then(() => this.serverless.cli.log('Typetalk notification has been sent.'))
+      .catch((err) => this.serverless.cli.log(`Typetalk notification failed. error: ${JSON.stringify(err)}`));
   }
 }
 
