@@ -1,6 +1,6 @@
 {
     "name": "serverless-plugin-typetalk",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "description": "Serverless Plugin Typetalk",
     "license": "MIT",
     "repository": {
