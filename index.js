@@ -16,7 +16,6 @@ function hasRequiredProperties(service) {
   if (!service.custom.typetalk.token) {
     return false;
   }
-
   return true;
 }
 
@@ -42,7 +41,11 @@ class TypetalkServerlessPlugin {
   }
 
   beforeDeployDeploy() {
-    const message = `:airplane_departure: Start deploying \`${this.serverless.service.name}\`...`
+    const message = `:airplane_departure: Start deploying \`${this.serverless.service.service}\`...`
+    if (this.serverless.service.custom.typetalk.message) {
+      message += "\n";
+      message += this.serverless.service.custom.typetalk.message;
+    }
     const id = this.serverless.service.custom.typetalk.topicId
     return this.typetalk.postMessage({message}, {id})
       .then(() => this.serverless.cli.log('Typetalk notification has been sent.'))
@@ -50,16 +53,23 @@ class TypetalkServerlessPlugin {
   }
 
   deployDeploy() {
-    const message = `:confetti_ball: Deployed \`${this.serverless.service.name}\`...`
+    const message = `:confetti_ball: Deployed \`${this.serverless.service.service}\``
+    if (this.serverless.service.custom.typetalk.message) {
+      message += "\n";
+      message += this.serverless.service.custom.typetalk.message;
+    }
     const id = this.serverless.service.custom.typetalk.topicId
     return this.typetalk.postMessage({message}, {id})
       .then(() => this.serverless.cli.log('Typetalk notification has been sent.'))
       .catch((err) => this.serverless.cli.log(`Typetalk notification failed. error: ${JSON.stringify(err)}`));
-
   }
 
   remove() {
-    const message = `:bomb: Removed \`${this.serverless.service.name}\``
+    const message = `:bomb: Removed \`${this.serverless.service.service}\``
+    if (this.serverless.service.custom.typetalk.message) {
+      message += "\n";
+      message += this.serverless.service.custom.typetalk.message;
+    }
     const id = this.serverless.service.custom.typetalk.topicId
     return this.typetalk.postMessage({message}, {id})
       .then(() => this.serverless.cli.log('Typetalk notification has been sent.'))
