@@ -58,6 +58,7 @@ class TypetalkServerlessPlugin {
     this.typetalk.postMessage({message}, {id})
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    console.log("TEST");
   }
 }
 
