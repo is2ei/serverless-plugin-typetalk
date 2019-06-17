@@ -8,9 +8,12 @@
         "url": "git@github.com:is2ei/serverless-plugin-typetalk.git"
     },
     "scripts": {
+        "lint": "eslint . --fix",
         "test": "jest"
     },
     "devDependencies": {
+        "eslint": "^5.16.0",
+        "eslint-config-is2ei": "^0.1.8",
         "jest": "^24.8.0"
     },
     "dependencies": {
