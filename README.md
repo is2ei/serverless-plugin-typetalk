@@ -19,3 +19,5 @@ custom:
     token: "XXXXXXXXX"
     topicId: "123456"
 ```
+
+For working example, see [this repository](https://github.com/is2ei/serverless-plugin-typetalk-example)
