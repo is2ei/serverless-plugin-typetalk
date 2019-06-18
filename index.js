@@ -46,6 +46,9 @@ class TypetalkServerlessPlugin {
     }
 
     beforeDeployDeploy () {
+
+        this.typetalk.token = this.serverless.service.custom.typetalk.token;
+
         /* eslint-disable-next-line max-len */
         let message = `:airplane_departure: Start deploying \`${this.serverless.service.service}\`...`;
         if (this.serverless.service.custom.typetalk.message) {
@@ -59,6 +62,9 @@ class TypetalkServerlessPlugin {
     }
 
     deployDeploy () {
+
+        this.typetalk.token = this.serverless.service.custom.typetalk.token;
+
         /* eslint-disable-next-line max-len */
         let message = `:confetti_ball: Deployed \`${this.serverless.service.service}\``;
         if (this.serverless.service.custom.typetalk.message) {
@@ -72,6 +78,9 @@ class TypetalkServerlessPlugin {
     }
 
     remove () {
+
+        this.typetalk.token = this.serverless.service.custom.typetalk.token;
+
         /* eslint-disable-next-line max-len */
         let message = `:bomb: Removed \`${this.serverless.service.service}\``;
         if (this.serverless.service.custom.typetalk.message) {
