@@ -2,10 +2,22 @@
     "name": "serverless-plugin-typetalk",
     "version": "1.0.1",
     "description": "Serverless Plugin Typetalk",
+    "keywords": [
+        "serverless",
+        "typetalk"
+    ],
+    "author": {
+        "name": "Issei Horie",
+        "email": "is2ei.horie@gmail.com",
+        "url": "http://is2ei.com"
+    },
     "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git@github.com:is2ei/serverless-plugin-typetalk.git"
+    },
+    "bugs": {
+        "url": "https://github.com/is2ei/serverless-plugin-typetalk/issues"
     },
     "scripts": {
         "lint": "eslint . --fix",
