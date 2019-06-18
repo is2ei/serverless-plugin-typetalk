@@ -20,6 +20,11 @@ function hasRequiredProperties (service) {
 
 class TypetalkServerlessPlugin {
 
+    /**
+     * Constructor
+     * @param {Object} serverless
+     * @param {Object} options
+     */
     constructor (serverless, options) {
         this.serverless = serverless;
         this.options = options;
